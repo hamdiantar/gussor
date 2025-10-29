@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جسور الأفق | Jusoor Al Ufuk</title>
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تحميل Lucide Icons للاستخدام في الأيقونات -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* تعريف خط Inter لضمان وضوح النص اللاتيني */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* استخدام خط عربي واضح */
+        body {
+            font-family: 'Almarai', sans-serif; /* يمكن استبدال Almarai بخط عربي آخر متاح */
+            background-color: #f7f9fb; /* خلفية خفيفة جداً */
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* إضافة خط عربي من Google Fonts (افتراضي: Almarai) */
+        @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+        /* تلوين النص الأساسي باللون الأزرق الداكن */
+        .platform-name {
+            color: #0b1c55; /* أزرق داكن جداً */
+            font-weight: 800;
+        }
+
+        /* تلوين السطر الإنجليزي باللون الأغمق */
+        .platform-name-en {
+            color: #2563eb; /* أزرق متوسط */
+            font-weight: 700;
+        }
+
+        /* نمط قسم الهيرو الجديد بالصورة */
+        .hero-image-section {
+            background-image: url('hero.jpeg'); /* اسم ملف الصورة */
+            background-size: contain;
+            background-position: center;
+            height: 100vh; /* ارتفاع مرن لقسم الهيرو */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white; /* لون النص ليكون واضحاً فوق الصورة */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل للنص لتحسين الوضوح */
+        }
+
+        /* أنماط البطاقات في قسم "أقسام المنصة الأساسية" */
+        .step-card {
+            border-radius: 12px;
+            border-top: 5px solid #2563eb; /* خط أزرق مميز في الأعلى */
+            transition: all 0.3s ease-in-out;
+            min-height: 250px;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .step-icon {
+            color: #fbbf24; /* أصفر باهت / ذهبي */
+        }
+        .step-title {
+            color: #0b1c55; /* أزرق داكن */
+            font-weight: 700;
+        }
+        .kk-logo-placeholder {
+            width: 32px;
+            height: 32px;
+            background-color: #fcd34d; /* لون رمزي لجامعة الملك خالد */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #0b1c55;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body class="min-h-screen">
+
+<!-- شريط التنقل العلوي (Header) -->
+<header class="bg-white shadow-md sticky top-0 z-30">
+    <div class="container mx-auto  flex justify-between items-center max-w-7xl">
+        <!-- الشعار والاسم -->
+        <div class="flex items-center space-x-2 space-x-reverse">
+            <!-- شعار جامعة الملك خالد (صورة رمزية) -->
+            <!-- شعار المنصة -->
+            <a href="#" class="flex items-center text-xl font-bold text-blue-600">
+                <!-- تم افتراض اسم الملف الصحيح لـ logo.png -->
+                <img style="height: 100px;" src="logo.png" alt="شعار جسور الأفق" class="" onerror="this.onerror=null; this.src='https://placehold.co/32x32/1e40af/ffffff?text=LOGO'">
+            </a>
+        </div>
+
+        <!-- قائمة التنقل -->
+        <nav class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium">
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition">الرئيسية</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition">الرؤية والهدف</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition">من نحن</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition">تواصل</a>
+        </nav>
+
+        <!-- رقم افتراضي وزر اللغة -->
+        <div class="flex items-center space-x-3 space-x-reverse">
+            <!-- رقم افتراضي -->
+            <div class="text-blue-600 font-mono text-sm hidden sm:block"> 050-123-4567</div>
+            <!-- زر اللغة -->
+            <button class="text-gray-600 text-sm font-medium px-3 py-1 border rounded-md hover:bg-gray-100 transition">EN
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- قسم الهيرو (Hero) -->
+<main class="hero-image-section">
+</main>
+
+<!-- قسم "أقسام المنصة الأساسية" -->
+<section id="platform-sections" class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <!-- عنوان الأقسام -->
+        <h3 class="text-3xl font-extrabold text-center mb-12 platform-name border-b-4 border-blue-100 pb-2 inline-block mx-auto">أقسام المنصة الأساسية</h3>
+
+        <!-- بطاقات الأقسام الستة -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. خريطة العمادات التفاعلية -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="map" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">خريطة العمادات التفاعلية</h4>
+                    <p class="text-sm text-gray-600">
+                        عند النقر على أي عمادة، تُفتح نافذة تعريفية بلغة قريبة من الطلاب توضّح دورها وخدماتها الأساسية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. تيسير الأُفق -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="compass" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">تيسير الأُفق</h4>
+                    <p class="text-sm text-gray-600">
+                        مسارًا معرفيًا تفاعليًا يقدّم رحلة افتراضية تعريفية شاملة للتخصصات والعمادات الجامعية، صُمِّمت لتسهيل اتخاذ القرارات الأكاديمية والمهنية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. اسأل سفراء أُفق -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="users" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">اسأل سفراء أُفق</h4>
+                    <p class="text-sm text-gray-600">
+                        شبكة من طلاب الجامعة المتميزين يتم تأهيلهم ليكونوا “سفراء أُفق” للتوجيه والدعم. يمكن التواصل معهم عبر جلسات محادثة أو بث مباشر أسبوعي.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. مستقبل الأُفق -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="cpu" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">مستقبل الأُفق</h4>
+                    <p class="text-sm text-gray-600">
+                        أداة ذكية لتحديد المسار الأكاديمي والمهني الأنسب للطالب عبر تحليل اهتماماته وقدراته، لمساعدته في بناء خطته المستقبلية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5. صُناع الافق -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="zap" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">صُناع الافق</h4>
+                    <p class="text-sm text-gray-600">
+                        ركن مخصص لاكتشاف ودعم الطلاب الموهوبين والمبتكرين في الجامعة، وإظهار طاقاتهم ومشاريعهم الريادية، وتشجيع الإبداع.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 6. وصلة أفق -->
+            <div class="bg-white p-6 step-card shadow-lg">
+                <div class="flex flex-col items-center text-center">
+                    <span data-lucide="link" class="w-10 h-10 step-icon mb-4"></span>
+                    <h4 class="text-xl step-title mb-2">وصلة أفق</h4>
+                    <p class="text-sm text-gray-600">
+                        ركن تفاعلي ذكي يربط الطالب بالعمداء والمنسقين والمسؤولين الأكاديميين بحسب تخصصه واحتياجه (تأجيل، تدريب، استشارة)، ويقوم بتوجيه فوري ذكي للمسؤول.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم صناع الأفق -->
+        <div class="mt-20 text-center">
+            <h3 class="text-3xl font-extrabold mb-8 platform-name">هل أنت من صُناع الأفق؟</h3>
+            <button class="bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full text-lg shadow-xl hover:bg-yellow-500 transition duration-300 transform hover:scale-105">
+                سجل مشروعك الآن
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- تذييل الصفحة -->
+<footer class="mt-16 bg-gray-800 text-white p-8">
+    <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
+        <p>&copy; 2025 جسور الأفق. جميع الحقوق محفوظة   .</p>
+        <div class="mt-4 md:mt-0 text-sm space-y-1 md:space-y-0 md:space-x-4 md:space-x-reverse">
+            <div class="flex items-center justify-center md:justify-start">
+                <span data-lucide="mail" class="w-4 h-4 ml-2"></span>
+                <a href="mailto:info@jusoondiuhilk.com" class="hover:text-blue-400">info@jusoondiuhilk.com</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start">
+                <span data-lucide="phone" class="w-4 h-4 ml-2"></span>
+                <span>+966 50-123-4567</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- تهيئة أيقونات Lucide -->
+<script>
+    // تهيئة الأيقونات بعد تحميل الصفحة
+    window.onload = function () {
+        lucide.createIcons();
+    };
+</script>
+</body>
+</html>
