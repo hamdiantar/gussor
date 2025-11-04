@@ -1,241 +1,401 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جسور الأفق | Jusoor Al Ufuk</title>
-    <!-- تحميل Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تحميل Lucide Icons للاستخدام في الأيقونات -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* تعريف خط Inter لضمان وضوح النص اللاتيني */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        /* استخدام خط عربي واضح */
-        body {
-            font-family: 'Almarai', sans-serif; /* يمكن استبدال Almarai بخط عربي آخر متاح */
-            background-color: #f7f9fb; /* خلفية خفيفة جداً */
-            color: #1f2937;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جسور الأفق | Jusoor Al Ufuk</title>
+  <!-- تحميل Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- تحميل Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* تعريف خط Inter للنصوص اللاتينية وخط عربي واضح */
+    @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
 
-        /* إضافة خط عربي من Google Fonts (افتراضي: Almarai) */
-        @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+    body {
+      font-family: 'Almarai', sans-serif;
+      background-color: #f7f9fb;
+      /* خلفية خفيفة جداً */
+      color: #1f2937;
+      min-height: 100vh;
+    }
 
-        /* تلوين النص الأساسي باللون الأزرق الداكن */
-        .platform-name {
-            color: #0b1c55; /* أزرق داكن جداً */
-            font-weight: 800;
-        }
+    /* الألوان الرئيسية للعلامة التجارية - تم الاحتفاظ بالألوان المطلوبة */
+    .color-primary-dark {
+      color: #0B1C55;
+    }
 
-        /* تلوين السطر الإنجليزي باللون الأغمق */
-        .platform-name-en {
-            color: #2563eb; /* أزرق متوسط */
-            font-weight: 700;
-        }
+    .bg-primary-dark {
+      background-color: #0B1C55;
+    }
 
-        /* نمط قسم الهيرو الجديد بالصورة */
-        .hero-image-section {
-            background-image: url('hero.jpeg'); /* اسم ملف الصورة */
-            background-size: contain;
-            background-position: center;
-            height: 100vh; /* ارتفاع مرن لقسم الهيرو */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-			    background-repeat: no-repeat;
+    .color-accent-blue {
+      color: #1E40AF;
+    }
 
-        }
+    .bg-accent-blue {
+      background-color: #1E40AF;
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white; /* لون النص ليكون واضحاً فوق الصورة */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل للنص لتحسين الوضوح */
-        }
+    .color-accent-yellow {
+      color: #FCD34D;
+    }
 
-        /* أنماط البطاقات في قسم "أقسام المنصة الأساسية" */
-        .step-card {
-            border-radius: 12px;
-            border-top: 5px solid #2563eb; /* خط أزرق مميز في الأعلى */
-            transition: all 0.3s ease-in-out;
-            min-height: 250px;
-        }
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .step-icon {
-            color: #fbbf24; /* أصفر باهت / ذهبي */
-        }
-        .step-title {
-            color: #0b1c55; /* أزرق داكن */
-            font-weight: 700;
-        }
-        .kk-logo-placeholder {
-            width: 32px;
-            height: 32px;
-            background-color: #fcd34d; /* لون رمزي لجامعة الملك خالد */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #0b1c55;
-            font-weight: bold;
-        }
+    .bg-accent-yellow {
+      background-color: #FCD34D;
+    }
 
-    </style>
+    /* نمط شريط التنقل */
+    .header-bg {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* نمط قسم الهيرو */
+    .hero-image-section {
+        background-image: url(hero.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    min-height: 85vh;
+    position: relative;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 50% 5%;
+    border-bottom-right-radius: 50% 5%;
+    overflow: hidden;
+    }
+
+    /* تدرج لوني على الهيرو لتحسين وضوح النص */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(11, 28, 85, 0.6) 0%, rgba(30, 64, 175, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* أنماط بطاقات الأقسام */
+    .step-card {
+      border-radius: 16px;
+      border-top: 8px solid #FCD34D;
+      /* خط أصفر مميز في الأعلى */
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      min-height: 280px;
+    }
+
+    .step-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(30, 64, 175, 0.15);
+      /* ظل بلون أزرق خفيف */
+      border-top: 8px solid #1E40AF;
+      /* تغير لون الخط عند التحويم */
+    }
+
+    .step-icon-bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: #1E40AF;
+      /* خلفية أيقونة زرقاء */
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      color: #FCD34D;
+      /* أيقونة صفراء */
+    }
+
+    /* نمط زر CTA */
+    .cta-button {
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(252, 211, 77, 0.4);
+    }
+
+    .cta-button:hover {
+      background-color: #FBBF24;
+      /* أغمق قليلاً عند التحويم */
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(252, 211, 77, 0.6);
+    }
+
+    /* أنماط الخطوط والألوان في النصوص */
+    .platform-title {
+      color: #0B1C55;
+      font-weight: 800;
+    }
+
+    /* لإخفاء القائمة في وضع الجوال افتراضياً */
+    #mobile-menu {
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(100%);
+      /* ابدأها مخفية على اليمين */
+    }
+
+    #mobile-menu.active {
+      transform: translateX(0);
+      /* أظهرها */
+    }
+  </style>
 </head>
+
 <body class="min-h-screen">
 
-<!-- شريط التنقل العلوي (Header) -->
-<header class="bg-white shadow-md sticky top-0 z-30">
-    <div class="container mx-auto  flex justify-between items-center max-w-7xl">
-        <!-- الشعار والاسم -->
-        <div class="flex items-center space-x-2 space-x-reverse">
-            <!-- شعار جامعة الملك خالد (صورة رمزية) -->
-            <!-- شعار المنصة -->
-            <a href="#" class="flex items-center text-xl font-bold text-blue-600">
-                <!-- تم افتراض اسم الملف الصحيح لـ logo.png -->
-                <img style="height: 100px;" src="logo.png" alt="شعار جسور الأفق" class="" onerror="this.onerror=null; this.src='https://placehold.co/32x32/1e40af/ffffff?text=LOGO'">
-            </a>
-        </div>
+  <!-- شريط التنقل العلوي (Header) -->
+  <header class="header-bg sticky top-0 z-30">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex justify-between items-center h-20">
 
-        <!-- قائمة التنقل -->
-        <nav class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium">
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition">الرئيسية</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition">الرؤية والهدف</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition">من نحن</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition">تواصل</a>
+        <!-- الشعار والاسم (استخدام أيقونة رمزية بدلاً من logo.png) -->
+        <a href="#" class="flex items-center text-2xl font-extrabold text-white">
+        <img src="logo1.png" style="    height: 70px;">
+        </a>
+
+        <!-- قائمة التنقل لسطح المكتب -->
+        <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-medium">
+          <a href="#hero-section" class="text-dark hover:text-yellow-400 transition">الرئيسية</a>
+          <a href="#platform-sections" class="text-dark hover:text-yellow-400 transition">الأقسام</a>
+          <a href="#vision-section" class="text-dark hover:text-yellow-400 transition">الرؤية والهدف</a>
+          <a href="#footer" class="text-dark hover:text-yellow-400 transition">تواصل معنا</a>
         </nav>
 
-        <!-- رقم افتراضي وزر اللغة -->
-        <div class="flex items-center space-x-3 space-x-reverse">
-            <!-- رقم افتراضي -->
-            <div class="text-blue-600 font-mono text-sm hidden sm:block"> 050-123-4567</div>
-            <!-- زر اللغة -->
-            <button class="text-gray-600 text-sm font-medium px-3 py-1 border rounded-md hover:bg-gray-100 transition">EN
-            </button>
+        <!-- رقم افتراضي وزر اللغة وزر الجوال -->
+        <div class="flex items-center space-x-4 space-x-reverse">
+          <!-- رقم افتراضي -->
+          <div class="text-yellow-400 font-mono text-sm hidden sm:block"> 050-123-4567</div>
+
+          <!-- زر اللغة -->
+          <button
+            class="bg-accent-blue text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition">EN</button>
+
+          <!-- زر قائمة الجوال (Hamburger Icon) -->
+          <button id="mobile-menu-button" class="md:hidden text-white hover:text-yellow-400 transition p-2 rounded-md">
+            <span data-lucide="menu" class="w-6 h-6"></span>
+          </button>
         </div>
+      </div>
     </div>
-</header>
+  </header>
 
-<!-- قسم الهيرو (Hero) -->
-<main class="hero-image-section">
-</main>
+  <!-- قائمة الجوال المنبثقة (Mobile Menu) -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-primary-dark shadow-2xl p-6 z-40 md:hidden">
+    <div class="flex justify-start mb-8">
+      <button id="close-menu-button" class="text-white hover:text-yellow-400 transition">
+        <span data-lucide="x" class="w-8 h-8"></span>
+      </button>
+    </div>
+    <nav class="flex flex-col space-y-4 text-lg font-bold">
+      <a href="#hero-section"
+        class="text-white hover:text-yellow-400 transition block pb-2 border-b border-gray-700">الرئيسية</a>
+      <a href="#platform-sections"
+        class="text-white hover:text-yellow-400 transition block pb-2 border-b border-gray-700">الأقسام</a>
+      <a href="#vision-section"
+        class="text-white hover:text-yellow-400 transition block pb-2 border-b border-gray-700">الرؤية والهدف</a>
+      <a href="#footer" class="text-white hover:text-yellow-400 transition block pb-2 border-b border-gray-700">تواصل
+        معنا</a>
+    </nav>
+  </div>
 
-<!-- قسم "أقسام المنصة الأساسية" -->
-<section id="platform-sections" class="py-16 bg-white">
+
+  <!-- قسم الهيرو (Hero) -->
+  <main id="hero-section" class="hero-image-section">
+  
+  </main>
+  <div style="margin-bottom: 20px;;" class="hero-content text-center max-w-4xl mx-auto px-4">
+  
+    <p style="    color: #2a2a2a;" class="text-xl text-dark md:text-3xl font-light mb-8 opacity-90">
+      منصة الإرشاد الأكاديمي والمهني المتكاملة    . نرسم معاً خريطة مستقبلك.
+    </p>
+    <button class="bg-accent-yellow text-primary-dark font-bold py-3 px-10 rounded-full text-lg cta-button">
+      اكتشف مسارك الآن
+    </button>
+  </div>
+
+  <!-- قسم "الرؤية والهدف" (تم تغيير العنوان ليكون أوضح) -->
+  <section id="vision-section" class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-7xl">
-        <!-- عنوان الأقسام -->
-        <h3 class="text-3xl font-extrabold text-center mb-12 platform-name border-b-4 border-blue-100 pb-2 inline-block mx-auto">أقسام المنصة الأساسية</h3>
+      <h2 class="text-4xl platform-title text-center mb-4">رؤيتنا</h2>
+      <p class="text-center text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+        أن نكون البوصلة الرقمية الأولى التي ترشد طلاب جامعة الملك خالد نحو اتخاذ قرارات أكاديمية ومهنية مستنيرة، عبر
+        توفير أدوات تفاعلية وشخصية عالية الجودة.
+      </p>
+    </div>
+  </section>
 
-        <!-- بطاقات الأقسام الستة -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- 1. خريطة العمادات التفاعلية -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="map" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">خريطة العمادات التفاعلية</h4>
-                    <p class="text-sm text-gray-600">
-                        عند النقر على أي عمادة، تُفتح نافذة تعريفية بلغة قريبة من الطلاب توضّح دورها وخدماتها الأساسية.
-                    </p>
-                </div>
-            </div>
+  <!-- قسم "أقسام المنصة الأساسية" -->
+  <section id="platform-sections" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <!-- عنوان الأقسام -->
+      <h3 class="text-4xl font-extrabold text-center mb-12 platform-title">أقسام المنصة الأساسية</h3>
 
-            <!-- 2. تيسير الأُفق -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="compass" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">تيسير الأُفق</h4>
-                    <p class="text-sm text-gray-600">
-                        مسارًا معرفيًا تفاعليًا يقدّم رحلة افتراضية تعريفية شاملة للتخصصات والعمادات الجامعية، صُمِّمت لتسهيل اتخاذ القرارات الأكاديمية والمهنية.
-                    </p>
-                </div>
-            </div>
+      <!-- بطاقات الأقسام الستة -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- 3. اسأل سفراء أُفق -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="users" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">اسأل سفراء أُفق</h4>
-                    <p class="text-sm text-gray-600">
-                        شبكة من طلاب الجامعة المتميزين يتم تأهيلهم ليكونوا “سفراء أُفق” للتوجيه والدعم. يمكن التواصل معهم عبر جلسات محادثة أو بث مباشر أسبوعي.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 4. مستقبل الأُفق -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="cpu" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">مستقبل الأُفق</h4>
-                    <p class="text-sm text-gray-600">
-                        أداة ذكية لتحديد المسار الأكاديمي والمهني الأنسب للطالب عبر تحليل اهتماماته وقدراته، لمساعدته في بناء خطته المستقبلية.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 5. صُناع الافق -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="zap" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">صُناع الافق</h4>
-                    <p class="text-sm text-gray-600">
-                        ركن مخصص لاكتشاف ودعم الطلاب الموهوبين والمبتكرين في الجامعة، وإظهار طاقاتهم ومشاريعهم الريادية، وتشجيع الإبداع.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 6. وصلة أفق -->
-            <div class="bg-white p-6 step-card shadow-lg">
-                <div class="flex flex-col items-center text-center">
-                    <span data-lucide="link" class="w-10 h-10 step-icon mb-4"></span>
-                    <h4 class="text-xl step-title mb-2">وصلة أفق</h4>
-                    <p class="text-sm text-gray-600">
-                        ركن تفاعلي ذكي يربط الطالب بالعمداء والمنسقين والمسؤولين الأكاديميين بحسب تخصصه واحتياجه (تأجيل، تدريب، استشارة)، ويقوم بتوجيه فوري ذكي للمسؤول.
-                    </p>
-                </div>
-            </div>
+        <!-- 1. خريطة العمادات التفاعلية -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="map-pin" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">خريطة العمادات التفاعلية</h4>
+            <p class="text-base text-gray-700">
+              عند النقر على أي عمادة، تُفتح نافذة تعريفية بلغة قريبة من الطلاب توضّح دورها وخدماتها الأساسية.
+            </p>
+          </div>
         </div>
 
-        <!-- قسم صناع الأفق -->
-        <div class="mt-20 text-center">
-            <h3 class="text-3xl font-extrabold mb-8 platform-name">هل أنت من صُناع الأفق؟</h3>
-            <button class="bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full text-lg shadow-xl hover:bg-yellow-500 transition duration-300 transform hover:scale-105">
-                سجل مشروعك الآن
-            </button>
+        <!-- 2. تيسير الأُفق -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="route" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">تيسير الأُفق</h4>
+            <p class="text-base text-gray-700">
+              مسارًا معرفيًا تفاعليًا يقدّم رحلة افتراضية تعريفية شاملة للتخصصات والعمادات الجامعية، صُمِّمت لتسهيل
+              اتخاذ القرارات الأكاديمية والمهنية.
+            </p>
+          </div>
         </div>
+
+        <!-- 3. اسأل سفراء أُفق -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="message-square-text" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">اسأل سفراء أُفق</h4>
+            <p class="text-base text-gray-700">
+              شبكة من طلاب الجامعة المتميزين يتم تأهيلهم ليكونوا “سفراء أُفق” للتوجيه والدعم. يمكن التواصل معهم عبر
+              جلسات محادثة أو بث مباشر أسبوعي.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. مستقبل الأُفق -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="lightbulb" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">مستقبل الأُفق</h4>
+            <p class="text-base text-gray-700">
+              أداة ذكية لتحديد المسار الأكاديمي والمهني الأنسب للطالب عبر تحليل اهتماماته وقدراته، لمساعدته في بناء خطته
+              المستقبلية.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. صُناع الافق -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="zap" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">صُناع الافق</h4>
+            <p class="text-base text-gray-700">
+              ركن مخصص لاكتشاف ودعم الطلاب الموهوبين والمبتكرين في الجامعة، وإظهار طاقاتهم ومشاريعهم الريادية، وتشجيع
+              الإبداع.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6. وصلة أفق -->
+        <div class="bg-white p-6 step-card shadow-xl">
+          <div class="step-icon-bg"><span data-lucide="link-2" class="w-7 h-7"></span></div>
+          <div class="text-center">
+            <h4 class="text-2xl platform-title mb-3">وصلة أفق</h4>
+            <p class="text-base text-gray-700">
+              ركن تفاعلي ذكي يربط الطالب بالعمداء والمنسقين والمسؤولين الأكاديميين بحسب تخصصه واحتياجه (تأجيل، تدريب،
+              استشارة)، ويقوم بتوجيه فوري ذكي للمسؤول.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- قسم صناع الأفق - CTA -->
+      <div class="mt-20 text-center bg-accent-blue p-10 rounded-xl shadow-2xl">
+        <h3 class="text-4xl font-extrabold mb-4 text-white">هل أنت من صُناع الأفق؟</h3>
+        <p class="text-lg text-blue-100 mb-8">نحن نبحث عن الموهوبين والمبتكرين في جامعة الملك خالد. سجل مشروعك الآن وكن
+          جزءًا من المستقبل.</p>
+        <button class="bg-yellow-400 text-gray-900 font-bold py-3 px-12 rounded-full text-xl cta-button">
+          سجل مشروعك الآن
+        </button>
+      </div>
 
     </div>
-</section>
+  </section>
 
-<!-- تذييل الصفحة -->
-<footer class="mt-16 bg-gray-800 text-white p-8">
-    <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
-        <p>&copy; 2025 جسور الأفق. جميع الحقوق محفوظة   .</p>
-        <div class="mt-4 md:mt-0 text-sm space-y-1 md:space-y-0 md:space-x-4 md:space-x-reverse">
-            <div class="flex items-center justify-center md:justify-start">
-                <span data-lucide="mail" class="w-4 h-4 ml-2"></span>
-                <a href="mailto:info@jusoondiuhilk.com" class="hover:text-blue-400">info@jusoondiuhilk.com</a>
-            </div>
-            <div class="flex items-center justify-center md:justify-start">
-                <span data-lucide="phone" class="w-4 h-4 ml-2"></span>
-                <span>+966 50-123-4567</span>
-            </div>
+  <!-- تذييل الصفحة -->
+  <footer id="footer" class="bg-primary-dark text-white p-10">
+    <div class="container mx-auto px-4 max-w-7xl text-center md:flex md:justify-between md:items-center">
+      <!-- معلومات الاتصال -->
+      <div class="mt-4 md:mt-0 text-sm space-y-3 md:space-y-0 md:flex md:space-x-8 md:space-x-reverse">
+        <div class="flex items-center justify-center md:justify-start">
+          <span data-lucide="mail" class="w-5 h-5 ml-2 text-yellow-400"></span>
+          <a href="mailto:info@jusoondiuhilk.com" class="hover:text-yellow-400 transition">info@jusoondiuhilk.com</a>
         </div>
-    </div>
-</footer>
+        <div class="flex items-center justify-center md:justify-start">
+          <span data-lucide="phone" class="w-5 h-5 ml-2 text-yellow-400"></span>
+          <span class="font-mono">+966 50-123-4567</span>
+        </div>
+      </div>
 
-<!-- تهيئة أيقونات Lucide -->
-<script>
-    // تهيئة الأيقونات بعد تحميل الصفحة
-    window.onload = function () {
-        lucide.createIcons();
-    };
-</script>
+      <!-- الحقوق محفوظة -->
+      <p class="mt-8 md:mt-0 text-gray-400 text-sm">&copy; 2025 جسور الأفق. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <!-- تهيئة أيقونات Lucide ومنطق قائمة الجوال -->
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = mobileMenu.querySelectorAll('a');
+
+    // تهيئة الأيقونات
+    lucide.createIcons();
+
+    // تبديل حالة القائمة المنبثقة
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('active');
+    }
+
+    // إغلاق القائمة عند النقر على أي رابط داخلها
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    closeMenuButton.addEventListener('click', toggleMobileMenu);
+
+    // إضافة وظيفة لإغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', (event) => {
+      const isClickInsideMenu = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
+      if (!isClickInsideMenu && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // منع التمرير على الصفحة عند فتح القائمة
+    function updateBodyScroll() {
+      if (mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    mobileMenuButton.addEventListener('click', updateBodyScroll);
+    closeMenuButton.addEventListener('click', updateBodyScroll);
+    navLinks.forEach(link => link.addEventListener('click', updateBodyScroll));
+
+  </script>
 </body>
+
 </html>
